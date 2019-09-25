@@ -1,9 +1,14 @@
+from django.urls import reverse
 from django.db import models
 
 
 class List(models.Model):
     '''список'''
-    pass
+
+    def get_absolute_url(self):
+        '''получить абсолютный url'''
+        return reverse('view_list', args=[self.id])
+
 
 class Item(models.Model):
     '''элемент списка'''
